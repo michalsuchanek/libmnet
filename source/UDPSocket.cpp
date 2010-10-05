@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <assert.h>
 
-using boost::asio::ip::udp;
+using namespace boost::asio;
 
 namespace mnet {
 
@@ -14,7 +14,7 @@ UDPSocket::UDPSocket( IOService* io, const UDPEndPoint& bindaddr, size_t inbufsi
 	assert( inbufsize > 0 );
 	
 	m_inBuf.resize( (inbufsize+7)&~7 );
-	m_impl.open( udp::v4(), m_err );
+	m_impl.open( ip::udp::v4(), m_err );
 	m_impl.bind( bindaddr.impl(), m_err );
 	
 	if ( !m_err )
@@ -46,24 +46,24 @@ void UDPSocket::sendToA( const UDPEndPoint& dest, const void* data, size_t len )
 {
 	PacketPtr_t packet = createPacket( data, len );
 
-	m_impl.async_send_to( boost::asio::buffer(*packet), dest.impl(),
+	m_impl.async_send_to( buffer(*packet), dest.impl(),
 		boost::bind(&UDPSocket::handleSend, this, packet,
-		boost::asio::placeholders::error,
-		boost::asio::placeholders::bytes_transferred) );
+		placeholders::error,
+		placeholders::bytes_transferred) );
 }
 
 void UDPSocket::sendToS( const UDPEndPoint& dest, const void* data, size_t len )
 {
-	m_impl.send_to( boost::asio::buffer(data,len), dest.impl(), 0, m_err );
+	m_impl.send_to( buffer(data,len), dest.impl(), 0, m_err );
 }
 
 void UDPSocket::startReceive()
 {
 	m_impl.async_receive_from(
-		boost::asio::buffer(&m_inBuf[0],m_inBuf.size()), m_inAddr.impl(),
+		buffer(&m_inBuf[0],m_inBuf.size()), m_inAddr.impl(),
 		boost::bind(&UDPSocket::handleReceive, this,
-		boost::asio::placeholders::error,
-		boost::asio::placeholders::bytes_transferred) );
+		placeholders::error,
+		placeholders::bytes_transferred) );
 }
 
 void UDPSocket::handleReceive( const boost::system::error_code& err, std::size_t bytes_transferred )

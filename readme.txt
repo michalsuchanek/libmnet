@@ -33,13 +33,18 @@ Primary development environment:
 Install (Visual Studio 2008)
 ----------------------------------------
 
-1) Install library e.g. to "c:\mnet"
+0) Install Boost C++ and build it. Then define BOOST environment variable like this:
+   (Windows: My Computer -> Properties -> Advanced -> Environment Variables)
+   BOOST=C:\Users\Jani\Documents\boost_1_44_0
+
+1) Install mnet library e.g. to "c:\mnet"
 
 2) Define MNET environment variable to point to c:\mnet
    (Windows: My Computer -> Properties -> Advanced -> Environment Variables)
    Restart Visual Studio.
 
-3) Start mnet\build\vs2008\mnet\mnet.sln and build all libraries
+3) Start mnet\build\vs2008\mnet\mnet.sln and re-build all libraries
+   (strictly you don't need to do this, but this is good practice since e.g. you might have different boost libs)
 
 4) Add "$(MNET)\include\" directory to your #include path: 
   Can be done from menu Tools -> Projects and Solutions -> VC++ Directories -> 
