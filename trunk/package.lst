@@ -1,0 +1,12 @@
+license.txt
+readme.txt
+build/vs2008/mnet/mnet.sln
+build/vs2008/mnet/mnet.vcproj
+documentation/doxygen.project
+include/mnet/*
+samples/client-server/client-server.cpp
+samples/client-server/client-server.sln
+samples/client-server/client-server.vcproj
+samples/client-server/client.bat
+samples/client-server/server.bat
+source/*
