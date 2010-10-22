@@ -1,4 +1,4 @@
-mnet ver. 0.5.0
+mnet ver. 0.5.2
 ********************'
 
 Simple but robust networking library with UDP async sockets support.
@@ -73,6 +73,12 @@ Repository Path: /svnroot/mnet
 
 Changes
 --------
+
+v0.5.2 (2010-10-21):
+* lib/vs2008 as output path
+
+v0.5.1 (2010-10-05):
+* Eliminated libs from the package
 
 v0.5.0 (2010-10-01):
 * Initial public release

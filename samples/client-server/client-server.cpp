@@ -37,24 +37,19 @@ private:
 
 int main( int argc, char* argv[] )
 {
-	const std::string server_host = "127.0.0.1";
+	const std::string server_host = "129.119.245.233";
 	const std::string server_port = "8001";
 	unsigned short port = 0;
 	bool is_server = false;
 
-	if ( argc < 2 )
+	if ( argc < 2 || !strcmp("client",argv[1]) )
 	{
-		printf( "arg: server/client\n" );
-		return 1;
+		is_server = false;
 	}
-	if ( !strcmp("server",argv[1]) )
+	else if ( !strcmp("server",argv[1]) )
 	{
 		port = atoi( server_port.c_str() );
 		is_server = true;
-	}
-	else if ( !strcmp("client",argv[1]) )
-	{
-		is_server = false;
 	}
 	else
 	{
