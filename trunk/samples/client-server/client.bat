@@ -1,1 +1,1 @@
-Win32\Debug\client-server client
+Win32\Release\client-server client
