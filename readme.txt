@@ -1,5 +1,5 @@
 mnet ver. 0.5.2
-********************'
+********************
 
 Simple but robust networking library with UDP async sockets support.
 
