@@ -1,5 +1,7 @@
-build/vs2008/mnet/*
-build/vs2010/mnet/*
+build/vs2008/mnet/*.vcproj
+build/vs2008/mnet/*.sln
+build/vs2010/mnet/mnet.sln
+build/vs2010/mnet/mnet.vcxproj
 documentation/*
 include/mnet/*
 license.txt
