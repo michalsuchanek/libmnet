@@ -1,0 +1,10 @@
+build/vs2008/mnet/*
+build/vs2010/mnet/*
+documentation/*
+include/mnet/*
+license.txt
+readme.txt
+samples/client-server/*
+samples/client-server/build/vs2010/client-server/client-server.sln
+samples/client-server/build/vs2010/client-server/client-server/client-server.vcxproj
+source/*
