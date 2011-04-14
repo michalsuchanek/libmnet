@@ -1,4 +1,4 @@
-mnet ver. 0.5.2
+mnet ver. 0.6.0
 ********************
 
 Simple but robust networking library with UDP async sockets support.
@@ -27,39 +27,17 @@ Primary development environment:
 
 * Windows Vista 64bit / Visual Studio 2008
 
-* boost_1_44_0
+* boost_1_46_1
 
 
-Install (Visual Studio 2008)
+Install (Visual Studio)
 ----------------------------------------
 
-0) Install Boost C++ and build it. Then define BOOST environment variable like this:
-   (Windows: My Computer -> Properties -> Advanced -> Environment Variables)
-   BOOST=C:\Users\Jani\Documents\boost_1_44_0
+1) Just mnet project to your solution, set your project as dependent on mnet
 
-1) Install mnet library e.g. to "c:\mnet"
+2) Make sure mnet/include is on include path
 
-2) Define MNET environment variable to point to c:\mnet
-   (Windows: My Computer -> Properties -> Advanced -> Environment Variables)
-   Restart Visual Studio.
-
-3) Start mnet\build\vs2008\mnet\mnet.sln and re-build all libraries
-   (strictly you don't need to do this, but this is good practice since e.g. you might have different boost libs)
-
-4) Add "$(MNET)\include\" directory to your #include path: 
-  Can be done from menu Tools -> Projects and Solutions -> VC++ Directories -> 
-  Show directories for -> Include files. Then add "$(MNET)\include\" to the list.
-
-
-Usage in your project (Visual Studio 2008)
--------------------------------------------
-
-0) See Install first
-
-1) Add the mnet project file to your Solution, e.g. from "c:\mnet\build\vs2008\mnet\mnet.vcproj"
-
-After that you can use the library, for example, by including in your code 
-#include <mnet/UDPSocket.h>
+3) Build & run
 
 
 Version Control (Subversion)
@@ -73,6 +51,9 @@ Repository Path: /svnroot/mnet
 
 Changes
 --------
+
+v0.6.0 (2011-04-14):
+* simplified docs
 
 v0.5.2 (2010-10-21):
 * lib/vs2008 as output path
