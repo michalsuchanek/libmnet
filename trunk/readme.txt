@@ -25,7 +25,7 @@ must be BOOST environment variable pointing to the root of the Boost install.
 
 Primary development environment:
 
-* Windows Vista 64bit / Visual Studio 2008
+* Windows Vista 64bit / Visual Studio 2010
 
 * boost_1_46_1
 
@@ -54,6 +54,7 @@ Changes
 
 v0.6.0 (2011-04-14):
 * simplified docs
+* vs2010 support
 
 v0.5.2 (2010-10-21):
 * lib/vs2008 as output path
