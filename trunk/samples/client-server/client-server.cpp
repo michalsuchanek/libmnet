@@ -37,25 +37,18 @@ private:
 
 int main( int argc, char* argv[] )
 {
-	const std::string server_host = "129.119.245.233";
+	std::string server_host = "127.0.0.1";
 	const std::string server_port = "8001";
 	unsigned short port = 0;
 	bool is_server = false;
 
-	if ( argc < 2 || !strcmp("client",argv[1]) )
+	if ( argc != 3 )
 	{
-		is_server = false;
-	}
-	else if ( !strcmp("server",argv[1]) )
-	{
-		port = atoi( server_port.c_str() );
-		is_server = true;
-	}
-	else
-	{
-		printf( "Invalid mode: %s\n", argv[1] );
+		printf( "usage: <client/server> <server ip>" );
 		return 1;
 	}
+	is_server = !strcmp("server",argv[1]);
+	server_host = argv[2];
 
 	IOService ios;
 	UDPEndPoint local_ep( port );
