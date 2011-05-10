@@ -1,1 +1,1 @@
-Win32\Release\client-server server 129.119.245.88
+build\vs2010\client-server\Release\client-server.exe server 129.119.245.88

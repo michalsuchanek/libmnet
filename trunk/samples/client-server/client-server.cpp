@@ -37,18 +37,16 @@ private:
 
 int main( int argc, char* argv[] )
 {
-	std::string server_host = "127.0.0.1";
-	const std::string server_port = "8001";
-	unsigned short port = 0;
-	bool is_server = false;
-
 	if ( argc != 3 )
 	{
 		printf( "usage: <client/server> <server ip>" );
 		return 1;
 	}
-	is_server = !strcmp("server",argv[1]);
-	server_host = argv[2];
+	bool is_server = !strcmp("server",argv[1]);
+	std::string server_host = argv[2];
+	unsigned short port = is_server ? 8001 : 0;
+	const std::string server_port = "8001";
+
 
 	IOService ios;
 	UDPEndPoint local_ep( port );
