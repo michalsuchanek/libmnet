@@ -27,7 +27,7 @@ Primary development environment:
 
 * Windows Vista 64bit / Visual Studio 2010
 
-* boost_1_46_1
+* boost (1.41 at the time of this)
 
 
 Install (Visual Studio)
