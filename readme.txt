@@ -36,8 +36,8 @@ Install (Visual Studio)
 0) Download and build Boost. For example, compiling Boost on VS2010:
    0.0) unpack boost sources
    0.1) bootstrap.bat
-   0.2) (for x86) bjam --toolset=msvc-10.0 --build-type=complete stage
-		(for x64) bjam --toolset=msvc-10.0 --build-type=complete architecture=x86 address-model=64
+   0.2) (for x86) bjam --toolset=msvc-10.0 --stagedir=stage-x86 --build-type=complete stage
+		(for x64) bjam --toolset=msvc-10.0 --stagedir=stage-x64 --build-type=complete architecture=x86 address-model=64
 
 1) Just add mnet project to your solution, set your project as dependent on mnet
 
