@@ -6,7 +6,7 @@
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = mnet
 PROJECT_NUMBER         = 0.5
-OUTPUT_DIRECTORY       = D:\Users\Jani\Documents\mnet\documentation
+OUTPUT_DIRECTORY       = $(MNET)\documentation
 CREATE_SUBDIRS         = YES
 OUTPUT_LANGUAGE        = English
 BRIEF_MEMBER_DESC      = YES
@@ -93,7 +93,7 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = D:\Users\Jani\Documents\mnet\include
+INPUT                  = $(MNET)\include
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.c \
                          *.cc \
@@ -238,7 +238,7 @@ ENABLE_PREPROCESSING   = YES
 MACRO_EXPANSION        = NO
 EXPAND_ONLY_PREDEF     = NO
 SEARCH_INCLUDES        = YES
-INCLUDE_PATH           = D:\Users\Jani\Documents\mnet\include
+INCLUDE_PATH           = $(MNET)\include
 INCLUDE_FILE_PATTERNS  = 
 PREDEFINED             = 
 EXPAND_AS_DEFINED      = YES
