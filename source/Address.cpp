@@ -1,5 +1,9 @@
 #include <mnet/Address.h>
 
+#ifdef _MSC_VER
+#pragma warning( disable : 4996 ) // sprintf
+#endif
+
 using boost::asio::ip::udp;
 
 namespace mnet {
@@ -15,12 +19,19 @@ Address::Address( int port ) :
 	assert( port >= 0 && port < 65536 );
 }
 
-Address::Address( IOService* io, const std::string& host, const std::string& port )
+Address::Address( IOService& io, const std::string& host, const std::string& port )
 {
 	resolve( io, host, port );
 }
 
-Address::Address( IOService* io, const std::string& hostport )
+Address::Address( IOService& io, const std::string& host, int port )
+{
+	char buf[32];
+	sprintf( buf, "%d", port );
+	resolve( io, host, buf );
+}
+
+Address::Address( IOService& io, const std::string& hostport )
 {
 	std::string port, host;
 	size_t i = hostport.find(':');
@@ -75,9 +86,9 @@ bool Address::operator<( const Address& o ) const
 	return m_impl < o.m_impl;
 }
 
-void Address::resolve( IOService* io, const std::string& host, const std::string& port )
+void Address::resolve( IOService& io, const std::string& host, const std::string& port )
 {
-    udp::resolver resolver( io->impl() );
+    udp::resolver resolver( io.impl() );
     udp::resolver::query query( udp::v4(), host.c_str(), port.c_str() );
     m_impl = *resolver.resolve( query );
 }
