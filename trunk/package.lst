@@ -5,7 +5,7 @@ build\vs2008\mnet\mnet.vcproj
 build\vs2010\mnet\mnet.sln
 build\vs2010\mnet\mnet.vcxproj
 build\vs2010\mnet\mnet.vcxproj.filters
-documentation\doxygen.project
+documentation\mnet.chm
 include\mnet\Address.h
 include\mnet\IOService.h
 include\mnet\mnet.h
