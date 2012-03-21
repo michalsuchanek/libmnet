@@ -11,7 +11,6 @@
  * Author: Jani Kajala (kajala@gmail.com)
  */
 
-#include <mnet/mnet_pp.h>
 #include <mnet/IOService.h>
 #include <mnet/Address.h>
 #include <mnet/PacketListener.h>

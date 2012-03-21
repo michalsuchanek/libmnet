@@ -7,9 +7,9 @@ using namespace boost::asio;
 
 namespace mnet {
 
-UDPSocket::UDPSocket( IOService* io, const Address& bindaddr, size_t inbufsize ) :
+UDPSocket::UDPSocket( IOService& io, const Address& bindaddr, size_t inbufsize ) :
 	m_io( io ),
-	m_impl( io->impl() )
+	m_impl( io.impl() )
 {
 	assert( inbufsize > 0 );
 	

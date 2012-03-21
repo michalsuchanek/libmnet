@@ -28,13 +28,20 @@ public:
 	 * @param host Host name, e.g. www.kajala.com or 127.0.0.1.
 	 * @param port Port number, e.g. "13133", or protocol name, e.g. "http".
 	 */
-	Address( IOService* io, const std::string& host, const std::string& port );
+	Address( IOService& io, const std::string& host, const std::string& port );
+
+	/** 
+	 * Host and port/protocol. IPv4.
+	 * @param host Host name, e.g. www.kajala.com or 127.0.0.1.
+	 * @param port Port number, e.g. 13133, or protocol name, e.g. "http".
+	 */
+	Address( IOService& io, const std::string& host, int port );
 
 	/** 
 	 * Host and port/protocol. IPv4.
 	 * @param hostport Host name and port number, e.g. 127.0.0.1:1233
 	 */
-	Address( IOService* io, const std::string& hostport );
+	Address( IOService& io, const std::string& hostport );
 
 	/** Copy by value. */
 	Address( const mnet::Address& o );
@@ -43,7 +50,7 @@ public:
 	~Address();
 
 	/** Copy by value. */
-	Address&	operator=( const mnet::Address& o );
+	Address&		operator=( const mnet::Address& o );
 
 	/** Sets port associated with this end point. */
 	void			setPort( int port );
@@ -70,7 +77,7 @@ public:
 private:
 	boost::asio::ip::udp::endpoint	m_impl;
 
-	void			resolve( IOService* io, const std::string& host, const std::string& port );
+	void			resolve( IOService& io, const std::string& host, const std::string& port );
 };
 
 } // namespace mnet

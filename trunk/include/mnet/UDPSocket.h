@@ -21,7 +21,7 @@ public:
 	 * @param binaddr Address to bind socket to.
 	 * @param inbufsize Input buffer size.
 	 */
-	UDPSocket( IOService* io, const mnet::Address& bindaddr, size_t inbufsize=32768 );
+	UDPSocket( IOService& io, const mnet::Address& bindaddr, size_t inbufsize=32768 );
 
 	/** Releases socket resources. */
 	~UDPSocket();
@@ -76,11 +76,11 @@ private:
 	typedef std::vector<PacketListener*>		ListenerVec_t;
 	typedef boost::shared_ptr<ByteBuf_t>		PacketPtr_t;
 
-	IOService*							m_io;
+	IOService&							m_io;
 	boost::asio::ip::udp::socket		m_impl;
 	ListenerVec_t						m_listeners;
 	ByteBuf_t							m_inBuf;
-	Address							m_inAddr;
+	Address								m_inAddr;
 	std::vector<PacketPtr_t>			m_freePackets;
 	boost::system::error_code			m_err;
 
