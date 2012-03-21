@@ -1,6 +1,5 @@
 #pragma once
 
-#include <mnet/mnet_pp.h>
 #include <boost/asio.hpp>
 
 namespace mnet {
@@ -32,7 +31,6 @@ private:
 	IOService& operator=( const IOService& );
 };
 
-
 } // namespace mnet
 
-// This file is part of mnet. Copyright (C) 2010 Jani Kajala. All rights reserved.
+// This file is part of mnet. Copyright (C) 2010-2012 Jani Kajala. All rights reserved.

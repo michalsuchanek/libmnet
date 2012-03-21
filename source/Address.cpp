@@ -1,26 +1,26 @@
-#include <mnet/UDPEndPoint.h>
+#include <mnet/Address.h>
 
 using boost::asio::ip::udp;
 
 namespace mnet {
 
-UDPEndPoint::UDPEndPoint() :
+Address::Address() :
 	m_impl( udp::v4(), 0 )
 {
 }
 
-UDPEndPoint::UDPEndPoint( int port ) :
+Address::Address( int port ) :
 	m_impl( udp::v4(), (unsigned short)port )
 {
 	assert( port >= 0 && port < 65536 );
 }
 
-UDPEndPoint::UDPEndPoint( IOService* io, const std::string& host, const std::string& port )
+Address::Address( IOService* io, const std::string& host, const std::string& port )
 {
 	resolve( io, host, port );
 }
 
-UDPEndPoint::UDPEndPoint( IOService* io, const std::string& hostport )
+Address::Address( IOService* io, const std::string& hostport )
 {
 	std::string port, host;
 	size_t i = hostport.find(':');
@@ -38,61 +38,61 @@ UDPEndPoint::UDPEndPoint( IOService* io, const std::string& hostport )
 	resolve( io, host, port );
 }
 
-UDPEndPoint::UDPEndPoint( const UDPEndPoint& o ) :
+Address::Address( const Address& o ) :
 	m_impl( o.m_impl )
 {
 }
 
-UDPEndPoint::~UDPEndPoint()
+Address::~Address()
 {
 }
 
-UDPEndPoint& UDPEndPoint::operator=( const UDPEndPoint& o )
+Address& Address::operator=( const Address& o )
 {
 	m_impl = o.m_impl;
 	return *this;
 }
 
-std::string UDPEndPoint::toString() const
+std::string Address::toString() const
 {
 	char buf[256];
 	sprintf_s( buf, sizeof(buf), "%s:%d", m_impl.address().to_string().c_str(), (int)m_impl.port() );
 	return buf;
 }
 
-bool UDPEndPoint::operator==( const UDPEndPoint& o ) const
+bool Address::operator==( const Address& o ) const
 {
 	return m_impl == o.m_impl;
 }
 
-bool UDPEndPoint::operator!=( const UDPEndPoint& o ) const
+bool Address::operator!=( const Address& o ) const
 {
 	return m_impl != o.m_impl;
 }
 
-bool UDPEndPoint::operator<( const UDPEndPoint& o ) const
+bool Address::operator<( const Address& o ) const
 {
 	return m_impl < o.m_impl;
 }
 
-void UDPEndPoint::resolve( IOService* io, const std::string& host, const std::string& port )
+void Address::resolve( IOService* io, const std::string& host, const std::string& port )
 {
     udp::resolver resolver( io->impl() );
     udp::resolver::query query( udp::v4(), host.c_str(), port.c_str() );
     m_impl = *resolver.resolve( query );
 }
 
-void UDPEndPoint::setPort( int port )
+void Address::setPort( int port )
 {
 	assert( port >= 0 && port < 65536 );
 	m_impl.port( (unsigned short)port );
 }
 
-int UDPEndPoint::port() const
+int Address::port() const
 {
 	return m_impl.port();
 }
 
 } // namespace mnet
 
-// This file is part of mnet. Copyright (C) 2010 Jani Kajala. All rights reserved.
+// This file is part of mnet. Copyright (C) 2010-2012 Jani Kajala. All rights reserved.

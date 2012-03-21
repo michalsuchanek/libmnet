@@ -12,15 +12,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\source\IOService.cpp" />
-    <ClCompile Include="..\..\..\source\UDPEndPoint.cpp" />
+    <ClCompile Include="..\..\..\source\Address.cpp" />
     <ClCompile Include="..\..\..\source\UDPSocket.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\mnet\IOService.h" />
     <ClInclude Include="..\..\..\include\mnet\mnet.h" />
-    <ClInclude Include="..\..\..\include\mnet\mnet_pp.h" />
-    <ClInclude Include="..\..\..\include\mnet\UDPEndPoint.h" />
-    <ClInclude Include="..\..\..\include\mnet\UDPPacketListener.h" />
+    <ClInclude Include="..\..\..\include\mnet\Address.h" />
+    <ClInclude Include="..\..\..\include\mnet\PacketListener.h" />
     <ClInclude Include="..\..\..\include\mnet\UDPSocket.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -53,16 +52,16 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(IncludePath);$(ProjectDir)\..\..\..\include;$(BOOST)</IncludePath>
     <LibraryPath>$(LibraryPath);$(BOOST)\stage\lib</LibraryPath>
-    <OutDir>$(ProjectDir)\..\..\..\lib\vs2010\$(PlatformShortName)\</OutDir>
-    <IntDir>$(ProjectDir)\..\..\..\lib\vs2010\$(PlatformShortName)\</IntDir>
-    <TargetName>$(ProjectName)-$(Configuration)</TargetName>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(IncludePath);$(ProjectDir)\..\..\..\include;$(BOOST)</IncludePath>
     <LibraryPath>$(LibraryPath);$(BOOST)\stage\lib</LibraryPath>
-    <OutDir>$(ProjectDir)\..\..\..\lib\vs2010\$(PlatformShortName)\</OutDir>
-    <IntDir>$(ProjectDir)\..\..\..\lib\vs2010\$(PlatformShortName)\</IntDir>
-    <TargetName>$(ProjectName)-$(Configuration)</TargetName>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

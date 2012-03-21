@@ -7,7 +7,7 @@ using namespace boost::asio;
 
 namespace mnet {
 
-UDPSocket::UDPSocket( IOService* io, const UDPEndPoint& bindaddr, size_t inbufsize ) :
+UDPSocket::UDPSocket( IOService* io, const Address& bindaddr, size_t inbufsize ) :
 	m_io( io ),
 	m_impl( io->impl() )
 {
@@ -25,7 +25,7 @@ UDPSocket::~UDPSocket()
 {
 }
 
-void UDPSocket::addPacketListener( UDPPacketListener* listener )
+void UDPSocket::addPacketListener( PacketListener* listener )
 {
 	assert( listener != 0 );
 
@@ -33,7 +33,7 @@ void UDPSocket::addPacketListener( UDPPacketListener* listener )
 		m_listeners.push_back( listener );
 }
 
-void UDPSocket::removePacketListener( UDPPacketListener* listener )
+void UDPSocket::removePacketListener( PacketListener* listener )
 {
 	assert( listener != 0 );
 
@@ -42,7 +42,7 @@ void UDPSocket::removePacketListener( UDPPacketListener* listener )
 		m_listeners.erase( it );
 }
 
-void UDPSocket::sendToA( const UDPEndPoint& dest, const void* data, size_t len )
+void UDPSocket::send( const Address& dest, const void* data, size_t len )
 {
 	PacketPtr_t packet = createPacket( data, len );
 
@@ -52,7 +52,7 @@ void UDPSocket::sendToA( const UDPEndPoint& dest, const void* data, size_t len )
 		placeholders::bytes_transferred) );
 }
 
-void UDPSocket::sendToS( const UDPEndPoint& dest, const void* data, size_t len )
+void UDPSocket::sendSync( const Address& dest, const void* data, size_t len )
 {
 	m_impl.send_to( buffer(data,len), dest.impl(), 0, m_err );
 }
@@ -77,7 +77,7 @@ void UDPSocket::handleReceive( const boost::system::error_code& err, std::size_t
 
 		for ( ListenerVec_t::iterator it = m_listeners.begin() ; it != m_listeners.end() ; ++it )
 		{
-			UDPPacketListener* listener = *it;
+			PacketListener* listener = *it;
 			assert( m_inBuf.size() >= bytes_transferred );
 			assert( bytes_transferred > 0 );
 			listener->onPacketReceived( m_inAddr, &m_inBuf[0], bytes_transferred );
@@ -143,13 +143,13 @@ int UDPSocket::error( std::string* msg ) const
 	return m_err.value();
 }
 
-UDPEndPoint UDPSocket::localEndPoint() const
+Address UDPSocket::boundAddress() const
 {
-	UDPEndPoint ep;
+	Address ep;
 	ep.impl() = m_impl.local_endpoint();
 	return ep;
 }
 
 } // namespace mnet
 
-// This file is part of mnet. Copyright (C) 2010 Jani Kajala. All rights reserved.
+// This file is part of mnet. Copyright (C) 2010-2012 Jani Kajala. All rights reserved.

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <mnet/mnet_pp.h>
 #include <mnet/IOService.h>
 #include <boost/asio.hpp>
 #include <string>
@@ -12,51 +11,51 @@ namespace mnet {
  * @see UDPSocket
  * @ingroup asio
  */
-class UDPEndPoint
+class Address
 {
 public:
 	/** Any net address. */
-	UDPEndPoint();
+	Address();
 
 	/** 
 	 * Local host and port number. IPv4.
 	 * @param port Port number
 	 */
-	explicit UDPEndPoint( int port );
+	explicit Address( int port );
 
 	/** 
 	 * Host and port/protocol. IPv4.
 	 * @param host Host name, e.g. www.kajala.com or 127.0.0.1.
 	 * @param port Port number, e.g. "13133", or protocol name, e.g. "http".
 	 */
-	UDPEndPoint( IOService* io, const std::string& host, const std::string& port );
+	Address( IOService* io, const std::string& host, const std::string& port );
 
 	/** 
 	 * Host and port/protocol. IPv4.
 	 * @param hostport Host name and port number, e.g. 127.0.0.1:1233
 	 */
-	UDPEndPoint( IOService* io, const std::string& hostport );
+	Address( IOService* io, const std::string& hostport );
 
 	/** Copy by value. */
-	UDPEndPoint( const mnet::UDPEndPoint& o );
+	Address( const mnet::Address& o );
 
 	/** Releases address resources. */
-	~UDPEndPoint();
+	~Address();
 
 	/** Copy by value. */
-	UDPEndPoint&	operator=( const mnet::UDPEndPoint& o );
+	Address&	operator=( const mnet::Address& o );
 
 	/** Sets port associated with this end point. */
 	void			setPort( int port );
 
 	/** Compare, equal. */
-	bool			operator==( const mnet::UDPEndPoint& o ) const;
+	bool			operator==( const mnet::Address& o ) const;
 
 	/** Compare, inequal. */
-	bool			operator!=( const mnet::UDPEndPoint& o ) const;
+	bool			operator!=( const mnet::Address& o ) const;
 
 	/** Compare, less than. */
-	bool			operator<( const mnet::UDPEndPoint& o ) const;
+	bool			operator<( const mnet::Address& o ) const;
 
 	/** Returns string description of the address. */
 	std::string		toString() const;
@@ -76,4 +75,4 @@ private:
 
 } // namespace mnet
 
-// This file is part of mnet. Copyright (C) 2010 Jani Kajala. All rights reserved.
+// This file is part of mnet. Copyright (C) 2010-2012 Jani Kajala. All rights reserved.
