@@ -1,4 +1,4 @@
-mnet ver. 0.6.0
+mnet ver. 0.7.0
 ********************
 
 Simple but robust networking library with UDP async sockets support.
@@ -46,17 +46,11 @@ Install (Visual Studio)
 3) Build & run
 
 
-Version Control (Subversion)
----------------------------
-
-Hostname: ?????
-Port: 443
-Protocol: HTTPS
-Repository Path: /svnroot/mnet
-
-
 Changes
 --------
+
+v0.7.0 (2012-03-21):
+* simplified function naming
 
 v0.6.0 (2011-04-14):
 * simplified docs

@@ -17,4 +17,4 @@ void IOService::poll()
 
 } // namespace mnet
 
-// This file is part of mnet. Copyright (C) 2010 Jani Kajala. All rights reserved.
+// This file is part of mnet. Copyright (C) 2010-2012 Jani Kajala. All rights reserved.

@@ -18,10 +18,10 @@
     <ClCompile Include="..\..\..\source\IOService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\source\UDPEndPoint.cpp">
+    <ClCompile Include="..\..\..\source\UDPSocket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\source\UDPSocket.cpp">
+    <ClCompile Include="..\..\..\source\Address.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,16 +32,13 @@
     <ClInclude Include="..\..\..\include\mnet\mnet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\mnet\mnet_pp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\mnet\UDPEndPoint.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\mnet\UDPPacketListener.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\mnet\UDPSocket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\mnet\Address.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\mnet\PacketListener.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

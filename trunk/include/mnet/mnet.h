@@ -12,5 +12,9 @@
  */
 
 #include <mnet/mnet_pp.h>
+#include <mnet/IOService.h>
+#include <mnet/Address.h>
+#include <mnet/PacketListener.h>
+#include <mnet/UDPSocket.h>
 
-// This file is part of 'mnet' C++ library. Copyright (C) 2010 Jani Kajala (kajala@gmail.com).
+// This file is part of 'mnet' C++ library. Copyright (C) 2010-2012 Jani Kajala (kajala@gmail.com).
