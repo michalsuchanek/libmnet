@@ -1,4 +1,4 @@
-mnet ver. 0.7.0
+mnet ver. 0.8.0
 ********************
 
 Simple but robust networking library with UDP async sockets support.
@@ -48,6 +48,9 @@ Install (Visual Studio)
 
 Changes
 --------
+
+v0.8.0 (2014-04-02):
+* added VS2012 projects
 
 v0.7.0 (2012-03-21):
 * simplified function naming
