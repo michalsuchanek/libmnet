@@ -15,30 +15,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\source\IOService.cpp">
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\source\IOService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\source\UDPSocket.cpp">
+    <ClCompile Include="..\..\..\..\source\UDPSocket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\source\Address.cpp">
+    <ClCompile Include="..\..\..\..\source\Address.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\mnet\IOService.h">
+    <ClInclude Include="..\..\..\..\include\mnet\Address.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\mnet\mnet.h">
+    <ClInclude Include="..\..\..\..\include\mnet\IOService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\mnet\UDPSocket.h">
+    <ClInclude Include="..\..\..\..\include\mnet\mnet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\mnet\Address.h">
+    <ClInclude Include="..\..\..\..\include\mnet\PacketListener.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\mnet\PacketListener.h">
+    <ClInclude Include="..\..\..\..\include\mnet\UDPSocket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
